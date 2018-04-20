@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.programList = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.feedback = new System.Windows.Forms.TabPage();
@@ -156,6 +157,7 @@
             // 
             // notifyIcon
             // 
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "Open Sphere";
             this.notifyIcon.Visible = true;
             // 
@@ -166,8 +168,11 @@
             this.ClientSize = new System.Drawing.Size(351, 361);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.programList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Sphere";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.tabControl1.ResumeLayout(false);
             this.feedback.ResumeLayout(false);
             this.feedback.PerformLayout();

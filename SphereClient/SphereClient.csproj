@@ -78,5 +78,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resourses\1200px-Sphere_wireframe_10deg_6r.svg.ico" />
+    <Content Include="Resourses\SphereIcon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
