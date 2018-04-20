@@ -40,11 +40,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.feedback.SuspendLayout();
             this.bugReport.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // programList
@@ -67,7 +69,8 @@
             // 
             // feedback
             // 
-            this.feedback.Controls.Add(this.comboBox1);
+            this.feedback.Controls.Add(this.label3);
+            this.feedback.Controls.Add(this.numericUpDown1);
             this.feedback.Controls.Add(this.button2);
             this.feedback.Controls.Add(this.richTextBox2);
             this.feedback.Controls.Add(this.label2);
@@ -123,7 +126,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(30, 25);
+            this.label2.Location = new System.Drawing.Point(17, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(277, 16);
             this.label2.TabIndex = 0;
@@ -146,20 +149,33 @@
             this.button2.Text = "Send";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(30, 62);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.Text = "Raiting";
-            // 
             // notifyIcon
             // 
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "Open Sphere";
             this.notifyIcon.Visible = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(149, 67);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(131, 20);
+            this.numericUpDown1.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(30, 67);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 16);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Your mark:";
             // 
             // MainForm
             // 
@@ -178,6 +194,7 @@
             this.feedback.PerformLayout();
             this.bugReport.ResumeLayout(false);
             this.bugReport.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -194,7 +211,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

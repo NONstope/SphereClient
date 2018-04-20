@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,12 @@ namespace SphereClient
     {
         private MouseEventHandler HandlerNotifyClickToShow;
         private MouseEventHandler HandlerNotifyClickToHide;
+        private String[] ForbiddenApps =
+            { "ApplicationFrameHost",
+              "WinStore.App",
+              "Video.UI",
+              "Microsoft.Photos",
+              "devenv" };
 
         public MainForm()
         {
@@ -25,6 +32,8 @@ namespace SphereClient
             this.Load += new System.EventHandler(this.Minimize);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.notifyIcon.MouseClick += HandlerNotifyClickToShow;
+
+            GetActiveAppsList();
         }
 
         private void Minimize(object sender, EventArgs e)
@@ -50,6 +59,21 @@ namespace SphereClient
             this.notifyIcon.MouseClick -= HandlerNotifyClickToShow;
             this.notifyIcon.MouseClick += HandlerNotifyClickToHide;
             WindowState = FormWindowState.Normal;
+        }
+
+        private void GetActiveAppsList()
+        {
+            foreach (Process process in Process.GetProcesses())
+            {
+                if (process.MainWindowTitle.Length > 0
+                    && !ForbiddenApps.Any(x => x == process.ProcessName))
+                {
+                    programList.Items.Add(
+                        System.Char.ToUpper(process.ProcessName[0])
+                        + process.ProcessName.Substring(1));
+                }
+                
+            }
         }
     }
 }
