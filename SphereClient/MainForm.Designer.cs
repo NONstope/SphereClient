@@ -33,20 +33,20 @@
             this.programList = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.feedback = new System.Windows.Forms.TabPage();
-            this.bugReport = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.updownMark = new System.Windows.Forms.NumericUpDown();
+            this.button2 = new System.Windows.Forms.Button();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.bugReport = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.reviewBox = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.tabControl1.SuspendLayout();
             this.feedback.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.updownMark)).BeginInit();
             this.bugReport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // programList
@@ -70,7 +70,7 @@
             // feedback
             // 
             this.feedback.Controls.Add(this.label3);
-            this.feedback.Controls.Add(this.numericUpDown1);
+            this.feedback.Controls.Add(this.updownMark);
             this.feedback.Controls.Add(this.button2);
             this.feedback.Controls.Add(this.richTextBox2);
             this.feedback.Controls.Add(this.label2);
@@ -82,46 +82,46 @@
             this.feedback.Text = "Feedback";
             this.feedback.UseVisualStyleBackColor = true;
             // 
-            // bugReport
+            // label3
             // 
-            this.bugReport.Controls.Add(this.label1);
-            this.bugReport.Controls.Add(this.richTextBox1);
-            this.bugReport.Controls.Add(this.button1);
-            this.bugReport.Location = new System.Drawing.Point(4, 22);
-            this.bugReport.Name = "bugReport";
-            this.bugReport.Padding = new System.Windows.Forms.Padding(3);
-            this.bugReport.Size = new System.Drawing.Size(314, 249);
-            this.bugReport.TabIndex = 1;
-            this.bugReport.Text = "Bug report";
-            this.bugReport.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(30, 67);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 16);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Your mark:";
             // 
-            // button1
+            // updownMark
             // 
-            this.button1.Location = new System.Drawing.Point(112, 204);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 30);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Send";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.updownMark.Location = new System.Drawing.Point(149, 67);
+            this.updownMark.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.updownMark.Name = "updownMark";
+            this.updownMark.Size = new System.Drawing.Size(131, 20);
+            this.updownMark.TabIndex = 4;
             // 
-            // richTextBox1
+            // button2
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(30, 63);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(255, 128);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(112, 204);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 30);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Send";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label1
+            // richTextBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(30, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Write about the bug you get";
+            this.richTextBox2.Location = new System.Drawing.Point(30, 100);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(250, 85);
+            this.richTextBox2.TabIndex = 1;
+            this.richTextBox2.Text = "";
             // 
             // label2
             // 
@@ -133,50 +133,52 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Give us some feedback about these program";
             // 
-            // richTextBox2
+            // bugReport
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(30, 100);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(250, 85);
-            this.richTextBox2.TabIndex = 1;
-            this.richTextBox2.Text = "";
+            this.bugReport.Controls.Add(this.label1);
+            this.bugReport.Controls.Add(this.reviewBox);
+            this.bugReport.Controls.Add(this.button1);
+            this.bugReport.Location = new System.Drawing.Point(4, 22);
+            this.bugReport.Name = "bugReport";
+            this.bugReport.Padding = new System.Windows.Forms.Padding(3);
+            this.bugReport.Size = new System.Drawing.Size(314, 249);
+            this.bugReport.TabIndex = 1;
+            this.bugReport.Text = "Bug report";
+            this.bugReport.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // label1
             // 
-            this.button2.Location = new System.Drawing.Point(112, 204);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 30);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Send";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(30, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(170, 16);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Write about the bug you get";
+            // 
+            // reviewBox
+            // 
+            this.reviewBox.Location = new System.Drawing.Point(30, 63);
+            this.reviewBox.Name = "reviewBox";
+            this.reviewBox.Size = new System.Drawing.Size(255, 128);
+            this.reviewBox.TabIndex = 2;
+            this.reviewBox.Text = "";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(112, 204);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 30);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Send";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // notifyIcon
             // 
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "Open Sphere";
             this.notifyIcon.Visible = true;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(149, 67);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(131, 20);
-            this.numericUpDown1.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(30, 67);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 16);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Your mark:";
             // 
             // MainForm
             // 
@@ -193,9 +195,9 @@
             this.tabControl1.ResumeLayout(false);
             this.feedback.ResumeLayout(false);
             this.feedback.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.updownMark)).EndInit();
             this.bugReport.ResumeLayout(false);
             this.bugReport.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -210,10 +212,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage bugReport;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox reviewBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown updownMark;
     }
 }

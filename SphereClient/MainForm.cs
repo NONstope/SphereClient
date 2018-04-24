@@ -35,8 +35,16 @@ namespace SphereClient
             this.Load += new System.EventHandler(this.Minimize);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.notifyIcon.MouseClick += HandlerNotifyClickToShow;
+            this.programList.TextChanged += ProgramList_TextChanged;
 
             GetActiveAppsList();
+        }
+
+        private void ProgramList_TextChanged(object sender, EventArgs e)
+        {
+            updownMark.Enabled = richTextBox2.Enabled = button2.Enabled
+                = !CheckReviewPresence(programList.SelectedItem.ToString());
+            richTextBox2.Text = button2.Enabled ? "Your review here..." : "You've already sent your review";
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -90,11 +98,42 @@ namespace SphereClient
             {
                 NameValueCollection postData = new NameValueCollection()
                 {
-                       { "username", "Dan" },
-                       { "referer", "Ciri" }
+                       { "username", Program.Username },
+                       { "appname", programList.SelectedItem.ToString() },
+                       { "value", reviewBox.Text }
                 };
 
-                richTextBox1.Text = Encoding.UTF8.GetString(webClient.UploadValues("http://localhost/sphere/index.php", postData));
+                reviewBox.Text = Encoding.UTF8.GetString(webClient.UploadValues("http://localhost/statserver/logic-add-bug.php", postData));
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (var webClient = new WebClient())
+            {
+                NameValueCollection postData = new NameValueCollection()
+                {
+                       { "username", Program.Username },
+                       { "appname", programList.SelectedItem.ToString() },
+                       { "mark", updownMark.Value.ToString() },
+                       { "review", reviewBox.Text }
+                };
+
+                reviewBox.Text = Encoding.UTF8.GetString(webClient.UploadValues("http://localhost/statserver/logic-add-review.php", postData));
+            }
+        }
+
+        private bool CheckReviewPresence(String appname)
+        {
+            using (var webClient = new WebClient())
+            {
+                NameValueCollection postData = new NameValueCollection()
+                {
+                       { "username", Program.Username },
+                       { "appname", programList.SelectedItem.ToString() }
+                };
+
+                return Encoding.UTF8.GetString(webClient.UploadValues("http://localhost/statserver/check-review.php", postData)) == "Presence";
             }
         }
     }
